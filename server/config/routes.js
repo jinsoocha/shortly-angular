@@ -3,7 +3,6 @@ var userController = require('../users/userController.js');
 var helpers = require('./helpers.js'); // our custom middleware
 
 module.exports = function (app, express) {
-  app.get('/:code', linksController.navToLink);
 
   app.post('/api/users/signin', userController.signin);
   app.post('/api/users/signup', userController.signup);
@@ -13,6 +12,7 @@ module.exports = function (app, express) {
   // app.use('/api/links', helpers.decode);
   app.get('/api/links/', linksController.allLinks);
   app.post('/api/links/', linksController.newLink);
+  app.get('/:code', linksController.navToLink);
 
   // If a request is sent somewhere other than the routes above,
   // send it through our custom error handler

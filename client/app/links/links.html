@@ -4,7 +4,8 @@
   <button ng-click='signout()'>Logout</button>
 
   <ul> 
-  <li ng-repeat='link in data.links'> {{link}} </li>
+  <li ng-repeat="link in data.links | orderBy:'-visits'"> {{link.title}} {{link.visits}}
+  <a href='/{{link.code}}'/>http://localhost:3000/#/{{link.code}}</li>
   </ul>
 
 </div>

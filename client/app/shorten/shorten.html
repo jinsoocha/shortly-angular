@@ -1,10 +1,11 @@
-<div id='container' ng-controller='ShortenController'>
+ <div id='container' ng-controller='ShortenController'>
   <!-- Your code here -->
   <a href='/#/links'>Go back to links</a>
   <button ng-click='signout()'>Logout</button>
-
-  <input ng-model='url' placeholder='Type your url here'/>
+  </br>
+  </br>
+  <input name='url' type='url' ng-model='url' pattern="http://www.*.*" placeholder='Type your url here' required/>
   <button ng-click='addLink(url)'>Submit Link</button>
-  <div ng-show='!isValidUrl(url)'>Please enter a valid url</div>
+  <div ng-show='isValidUrl(url)'>Please enter a valid url</div>
 
 </div>

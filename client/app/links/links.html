@@ -2,9 +2,10 @@
   <!-- Your html here -->
   <a href='/#/shorten'>Shorten your links</a>
   <button ng-click='signout()'>Logout</button>
+  <input ng-model='filterby' placeholder='filter'/>
 
   <ul> 
-  <li ng-repeat="link in data.links | orderBy:'-visits'"> {{link.title}} {{link.visits}}
+  <li ng-repeat="link in data.links | orderBy:'-visits' | filter: {title:filterby}"> {{link.title}} {{link.visits}}
   <a href='/{{link.code}}'/>http://localhost:3000/#/{{link.code}}</li>
   </ul>
 

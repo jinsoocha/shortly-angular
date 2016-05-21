@@ -26,7 +26,8 @@ angular.module('shortly', [
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
-    });
+    })
+    .otherwise({ redirectTo: '/links' });
     // Your code here
 
     // We add our $httpInterceptor into the array
@@ -59,13 +60,8 @@ angular.module('shortly', [
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on('$routeChangeSuccess', function (evt, next, current) {
-    console.log("route changing")
-    console.log('nex', next);
-    console.log('nextroute', next.$$route);
-    console.log('nextrouteauthenticte', next.$$route.authenticate);
     //next.$$route && next.$$route.authenticate && 
     if (!Auth.isAuth()) {
-
       $location.path('/signin');
     }
   });

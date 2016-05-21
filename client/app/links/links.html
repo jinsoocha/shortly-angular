@@ -1,6 +1,7 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <a href='/#/shorten'>Shorten your links</a>
+  <button ng-click='signout()'>Logout</button>
 
   <ul> 
   <li ng-repeat='link in data.links'> {{link}} </li>

@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, Links, Auth) {
   // Your code here
   $scope.data = {};
   $scope.data.links = [];
@@ -22,5 +22,15 @@ angular.module('shortly.links', [])
   $scope.$watch('$routeChangeSuccess', function () {
     $scope.getAll();
   });
+
+  $scope.signout = function() {
+    Auth.signout()
+      .then(function() {
+        console.log('Signed out');
+      })
+      .catch(function(err) {
+        console.error(err);
+      });
+  };
 
 });

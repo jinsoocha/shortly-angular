@@ -1,6 +1,7 @@
 <div id='container' ng-controller='ShortenController'>
   <!-- Your code here -->
   <a href='/#/links'>Go back to links</a>
+  <button ng-click='signout()'>Logout</button>
 
   <input ng-model='url' placeholder='Type your url here'/>
   <button ng-click='addLink(url)'/>Submit Link

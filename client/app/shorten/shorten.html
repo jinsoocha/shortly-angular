@@ -4,8 +4,10 @@
   <button ng-click='signout()'>Logout</button>
   </br>
   </br>
-  <input name='url' type='url' ng-model='url' pattern="http://www.*.*" placeholder='Type your url here' required/>
-  <button ng-click='addLink(url)'>Submit Link</button>
-  <div ng-show='isValidUrl(url)'>Please enter a valid url</div>
+  <form name='myform'>
+    <input name='url' type='url' ng-model='url' placeholder='Type your url here' required/>
+    <button ng-click='addLink(url)'>Submit Link</button>
+    <div ng-show='myform.url.$invalid && !myform.url.$error.required'>Please enter a valid url</div>
+  </form>
 
 </div>

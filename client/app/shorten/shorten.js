@@ -25,12 +25,4 @@ angular.module('shortly.shorten', [])
         console.error(err);
       });
   };
-
-  $scope.isValidUrl = function(url) {
-    if (url !== undefined) {
-      return Links.isValidUrl(url);
-    } else {
-      return true;
-    }
-  };
 });

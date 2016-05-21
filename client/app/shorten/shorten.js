@@ -12,6 +12,7 @@ angular.module('shortly.shorten', [])
       })
       .catch(function(err) {
         console.error(err);
+        valid = true;
       });
   };
 
@@ -23,5 +24,13 @@ angular.module('shortly.shorten', [])
       .catch(function(err) {
         console.error(err);
       });
+  };
+
+  $scope.isValidUrl = function(url) {
+    if (url !== undefined) {
+      return Links.isValidUrl(url);
+    } else {
+      return true;
+    }
   };
 });

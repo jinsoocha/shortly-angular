@@ -61,7 +61,7 @@ angular.module('shortly', [
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on('$routeChangeSuccess', function (evt, next, current) {
     //next.$$route && next.$$route.authenticate && 
-    if (!Auth.isAuth()) {
+    if (next.$$route.templateUrl !== 'app/auth/signup.html' && !Auth.isAuth()) {
       $location.path('/signin');
     }
   });

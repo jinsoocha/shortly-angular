@@ -4,6 +4,7 @@
   <button ng-click='signout()'>Logout</button>
 
   <input ng-model='url' placeholder='Type your url here'/>
-  <button ng-click='addLink(url)'/>Submit Link
+  <button ng-click='addLink(url)'>Submit Link</button>
+  <div ng-show='!isValidUrl(url)'>Please enter a valid url</div>
 
 </div>

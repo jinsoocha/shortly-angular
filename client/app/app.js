@@ -8,20 +8,24 @@ angular.module('shortly', [
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: './app/auth/signin.html',
+      templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
     })
     .when('/signin', {
-      templateUrl: './app/auth/signin.html',
+      templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
     })
     .when('/signup', {
-      templateUrl: './app/auth/signup.html',
+      templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
     .when('/links', {
-      templateUrl: './app/links/links.html',
+      templateUrl: 'app/links/links.html',
       controller: 'LinksController'
+    })
+    .when('/shorten', {
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController'
     });
     // Your code here
 
@@ -54,8 +58,14 @@ angular.module('shortly', [
   // when it does change routes, we then look for the token in localstorage
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's not valid, we then redirect back to signin/signup
-  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
-    if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
+  $rootScope.$on('$routeChangeSuccess', function (evt, next, current) {
+    console.log("route changing")
+    console.log('nex', next);
+    console.log('nextroute', next.$$route);
+    console.log('nextrouteauthenticte', next.$$route.authenticate);
+    //next.$$route && next.$$route.authenticate && 
+    if (!Auth.isAuth()) {
+
       $location.path('/signin');
     }
   });
